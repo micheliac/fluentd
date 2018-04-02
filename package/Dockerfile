@@ -24,6 +24,7 @@ ENV FLUENTD_CONF="fluent.conf"
 RUN mkdir -p /fluentd/etc/buffer
 RUN mkdir -p /fluentd/etc/config
 COPY fluent.conf /fluentd/etc/
+COPY fluent_custom_log.conf /fluentd/etc/
 
 EXPOSE 24224 5140
 
