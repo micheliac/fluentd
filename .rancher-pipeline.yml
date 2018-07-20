@@ -7,7 +7,11 @@ stages:
 - name: build and push
   steps:
   - publishImageConfig:
+<<<<<<< HEAD
       dockerfilePath: ./package/Dockerfile
+=======
+      dockerfilePath: ./Dockerfile.dapper
+>>>>>>> Create .rancher-pipeline.yml file
       buildContext: .
       tag: micheliac/fluentd:test
       pushRemote: true
