@@ -1,0 +1,15 @@
+stages:
+- name: build
+  steps:
+  - runScriptConfig:
+      image: golang:latest
+      shellScript: echo 'mytest'
+- name: build and push
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile.dapper
+      buildContext: .
+      tag: micheliac/fluentd:test
+      pushRemote: true
+      registry: index.docker.io
+branch: {}
