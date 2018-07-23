@@ -15,4 +15,10 @@ stages:
       buildContext: ./package
       tag: michelia/fluentd:build2
       registry: index.docker.io
+- name: build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./package/Dockerfile
+      buildContext: .
+      tag: fluentd:${CICD_EXECUTION_SEQUENCE}
 timeout: 60
