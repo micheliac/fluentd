@@ -12,7 +12,7 @@ stages:
       targetKey: mykey1
   - publishImageConfig:
       dockerfilePath: ./package/Dockerfile
-      buildContext: .
+      buildContext: ./package
       tag: michelia/fluentd:build2
       registry: index.docker.io
 timeout: 60
