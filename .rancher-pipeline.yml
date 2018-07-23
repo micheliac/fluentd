@@ -5,11 +5,6 @@ stages:
       image: golang:latest
       shellScript: |-
         echo 'mytest'
-        echo ${mykey1}
-    envFrom:
-    - sourceName: test
-      sourceKey: mykey
-      targetKey: mykey1
   - publishImageConfig:
       dockerfilePath: ./package/Dockerfile
       buildContext: ./package
