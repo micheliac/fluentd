@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: fluentd
+  labels:
+    component: fluentd
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: fluentd
+    spec:
+      containers:
+      - name: fluentd
+        image: ${CICD_LOCAL_REGISTRY}/fluentd:${CICD_EXECUTION_SEQUENCE}
