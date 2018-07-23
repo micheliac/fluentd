@@ -4,6 +4,27 @@ stages:
   - runScriptConfig:
       image: golang:latest
       shellScript: echo 'mytest'
+  - runScriptConfig:
+      image: golang:latest
+      shellScript: |-
+        echo ${CICD_GIT_REPO_NAME}
+        echo ${CICD_GIT_URL}
+        echo ${CICD_GIT_COMMIT}
+        echo ${CICD_GIT_REF}
+        echo ${CICD_GIT_BRANCH}
+        echo ${CICD_GIT_TAG}
+        echo ${CICD_TRIGGER_TYPE}
+        echo ${CICD_EVENT}
+        echo ${CICD_EXECUTION_ID}
+        echo ${CICD_EXECUTION_SEQUENCE}
+        echo ${CICD_PIPELINE_ID}
+        echo ${CICD_PROJECT_ID}
+        echo ${CICD_CLUSTER_ID}
+        echo ${CICD_LOCAL_REGISTRY}
+        echo ${xiaoxiao}
+    env:
+      xiaoxiao: xiaoxiaovalue
+    privileged: true
 - name: build and push
   steps:
   - publishImageConfig:
@@ -12,4 +33,5 @@ stages:
       tag: micheliac/fluentd:test
       pushRemote: true
       registry: index.docker.io
+timeout: 10
 branch: {}
