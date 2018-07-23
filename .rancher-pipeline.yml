@@ -1,19 +1,13 @@
 stages:
-- name: test
-  steps:
-  - runScriptConfig:
-      image: golang:latest
-      shellScript: |-
-        echo 'mytest'
-  - publishImageConfig:
-      dockerfilePath: ./package/Dockerfile
-      buildContext: ./package
-      tag: michelia/fluentd:build2
-      registry: index.docker.io
 - name: build
   steps:
   - publishImageConfig:
       dockerfilePath: ./package/Dockerfile
       buildContext: ./package
       tag: fluentd:${CICD_EXECUTION_SEQUENCE}
+      registry: index.docker.io
+- name: deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
 timeout: 60
