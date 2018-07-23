@@ -19,6 +19,6 @@ stages:
   steps:
   - publishImageConfig:
       dockerfilePath: ./package/Dockerfile
-      buildContext: .
+      buildContext: ./package
       tag: fluentd:${CICD_EXECUTION_SEQUENCE}
 timeout: 60
