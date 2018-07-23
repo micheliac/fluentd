@@ -3,9 +3,6 @@ stages:
   steps:
   - runScriptConfig:
       image: golang:latest
-      shellScript: echo 'mytest'
-  - runScriptConfig:
-      image: golang:latest
       shellScript: |-
         echo ${CICD_GIT_REPO_NAME}
         echo ${CICD_GIT_URL}
