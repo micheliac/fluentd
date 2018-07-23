@@ -30,8 +30,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./package/Dockerfile
       buildContext: .
-      tag: micheliac/fluentd:test
-      pushRemote: true
+      tag: fluentd:${CICD_EXECUTION_SEQUENCE}
       registry: index.docker.io
 timeout: 10
 branch: {}
